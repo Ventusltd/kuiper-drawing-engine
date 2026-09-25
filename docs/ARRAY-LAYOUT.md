@@ -1,7 +1,7 @@
 # Array layout
 
 The new `web/` tool is a dependency-free, orthographic wireframe view. It accepts
-portrait/landscape, one to ten modules up slope, one to sixty along the row,
+portrait/landscape, one to ten modules up slope, one to three hundred along the row,
 single/opposing faces, azimuth, tilt, lower edge, gaps and module dimensions.
 All defaults are synthetic. A 1 GW DC scenario is a quantity calculation rounded
 to whole strings; a regular virtual plant places every array at a deterministic address. The overview samples arrays to bound drawing work; any array can be selected by number. It is not a terrain-aware or electrically validated design. Placement edits can be saved locally with settings.

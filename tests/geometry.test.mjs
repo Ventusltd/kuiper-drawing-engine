@@ -21,3 +21,5 @@ test('edge heights drive tilt and schematic supports without stretching modules'
  for(const h of [.1,20]){const f=array({...s,height:h,upperHeight:h});assert.equal(f.settings.tilt,0);assert(f.modules.every(m=>m.corners.every(p=>p[2]===h)));}
  assert.throws(()=>array({...s,height:5,upperHeight:4}));assert.throws(()=>array({...s,rows:1,height:.1,upperHeight:20}));assert.throws(()=>array({...s,height:20.01,upperHeight:20.01}));
 });
+
+test('long table runs retain real module sizes',()=>{const a=array({...defaults,columns:150});assert.equal(a.modules.length,1500);assert(Math.abs(a.span-(150*defaults.moduleWidth+149*defaults.gap))<1e-9);});

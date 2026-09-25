@@ -4,7 +4,7 @@ export function validate(input){
  if(!input||typeof input!=='object'||Array.isArray(input))throw Error('Expected numeric layout settings');
  for(const k of Object.keys(input))if(!Object.hasOwn(defaults,k))throw Error('Unknown setting: '+k);
  const s={...defaults,...input};
- const limits={rows:[1,10],columns:[1,60],azimuth:[0,360],tilt:[0,60],height:[.1,20],upperHeight:[.1,20],supportBays:[1,20],gap:[0,.2],ridgeGap:[0,3],moduleLength:[.1,4],moduleWidth:[.1,3],moduleW:[1,1500],series:[1,60],stringsPerInverter:[1,100],invertersPerBlock:[1,100],targetMW:[.001,10000],boxU:[0,1],boxV:[0,1]};
+ const limits={rows:[1,10],columns:[1,300],azimuth:[0,360],tilt:[0,60],height:[.1,20],upperHeight:[.1,20],supportBays:[1,20],gap:[0,.2],ridgeGap:[0,3],moduleLength:[.1,4],moduleWidth:[.1,3],moduleW:[1,1500],series:[1,60],stringsPerInverter:[1,100],invertersPerBlock:[1,100],targetMW:[.001,10000],boxU:[0,1],boxV:[0,1]};
  for(const[k,[lo,hi]]of Object.entries(limits))if(typeof s[k]!=='number'||!Number.isFinite(s[k])||s[k]<lo||s[k]>hi)throw Error(k+' is outside its supported range');
  for(const k of ['supportBays','rows','columns','series','stringsPerInverter','invertersPerBlock'])if(!Number.isInteger(s[k]))throw Error(k+' must be a whole number');
  if(!['portrait','landscape'].includes(s.orientation)||!['fixed','east-west'].includes(s.layout)||!['unknown','one','two','three'].includes(s.boxLayout))throw Error('Unknown layout');
