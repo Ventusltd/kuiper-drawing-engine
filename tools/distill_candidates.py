@@ -1,5 +1,5 @@
 """Local GPU similarity graph over lexical code features; not semantic approval."""
-import argparse,json,time
+import argparse,json,time,re
 from pathlib import Path
 import cupy as cp
 import numpy as np
@@ -28,6 +28,17 @@ for _ in range(24):
 selected=cp.asnumpy(cp.argsort(rank)[-100:][::-1]);scores=cp.asnumpy(rank[selected]);result=[]
 for index,score in zip(selected,scores):
     row=dict(rows[int(index)]);row['lexical_graph_score']=float(score);result.append(row)
+# A second shortlist limits repeated versions from one source directory.
+diverse=[];families={};seen=set()
+all_indices=cp.asnumpy(cp.argsort(rank)[::-1]);all_scores=cp.asnumpy(rank)
+for index in all_indices:
+    row=dict(rows[int(index)]);fingerprint=row.get('normalized_sha256',row.get('sha256'))
+    family=(row['repository'],re.sub(r'\d+', '#', str(Path(row['path']).parent)))
+    if fingerprint in seen or families.get(family,0)>=3:continue
+    seen.add(fingerprint);families[family]=families.get(family,0)+1
+    row['lexical_graph_score']=float(all_scores[int(index)]);diverse.append(row)
+    if len(diverse)>=100:break
+(root/'drawing-diverse-shortlist.private.json').write_text(json.dumps({'scope':'Directory-diverse lexical candidates, not semantic admission. Hashes refer to normalized text.', 'items':diverse},indent=2))
 (root/'drawing-shortlist.private.json').write_text(json.dumps({'scope':'Lexical feature similarity and bounded propagation. Candidate discovery only; source/licence review still required.','items':result},indent=2))
 summary=dict(files=len(rows),edges=len(rows)*5,propagation_steps=24,cpu_gpu_similarity_error=max_error,wall_seconds=time.perf_counter()-started,status='pass' if max_error<1e-5 else 'fail')
 (root/'distillation-summary.json').write_text(json.dumps(summary,indent=2));print(json.dumps(summary))

@@ -32,3 +32,7 @@ reports an equality tolerance band and STC current comparisons. It does not
 establish installed variants, site temperatures, protection, cable sizing,
 MPPT temperature behaviour or construction approval. Inputs and results may be
 confidential and must stay outside the repository and served web directory.
+
+A second reviewed family is `testcode/sandbox/202609052028/layer-apps/solar-bess-topology-v7/module-layout/module-layout-v5.js`, functions `mlPointFromOffset`, `mlRect` and `mlBuildLayout` (lines 74?145). It uses Turf destinations to place geographic rectangles, assigns per-module indices and explicitly caps rendering at 6,000 modules. Its useful distinction is total module count versus rendered count. The current tool similarly keeps the full addressed population separate from sampled display, and now checks every virtual module corner on GPU against CPU placement arithmetic. Geographic coordinates, terrain and routing are not supplied by the current tool. No source from this family was copied.
+
+The discovery tool now emits a second shortlist with at most three candidates per normalized source directory (numeric version/date segments collapsed), and skips identical normalized-content hashes. This improves breadth but cannot prove that distinct directories contain independent implementations.
