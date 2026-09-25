@@ -28,3 +28,5 @@ private and review provenance before copying any source. Existing vendor files
 retain their original terms; new array code was written independently.
 
 Boxes are hidden until their layout is specified. Box fractions follow the module short and long axes when changing orientation. Site overview export contains sampled footprints, not every module.
+
+`cad_wireframe.py` converts local STEP edges to a bounded, sampled SVG for private review using an isolated OCP runtime. It grants no redistribution rights and does not publish source or derived CAD. Curve sampling is a preview, not a manufacturing tolerance.
