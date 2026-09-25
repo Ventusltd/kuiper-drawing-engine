@@ -14,3 +14,10 @@ test('unknown boxes hidden and specified positions rotate with module orientatio
  assert(Math.abs(dy-(orientation==='portrait'?defaults.moduleLength*.8:defaults.moduleWidth*.2))<1e-12);
  }
 });
+
+test('edge heights drive tilt and schematic supports without stretching modules',()=>{
+ const s={...defaults,heightMode:'edges',height:4,upperHeight:5};const a=array(s);const z=a.modules.flatMap(m=>m.corners.map(p=>p[2]));assert(Math.abs(Math.min(...z)-4)<1e-10);assert(Math.abs(Math.max(...z)-5)<1e-10);assert(a.structure.some(m=>m.kind==='brace'));
+ for(const m of a.structure.filter(m=>m.kind==='post')){assert.equal(m.points[0][2],0);assert(m.points[1][2]>=4&&m.points[1][2]<=5+1e-10);}
+ for(const h of [.1,20]){const f=array({...s,height:h,upperHeight:h});assert.equal(f.settings.tilt,0);assert(f.modules.every(m=>m.corners.every(p=>p[2]===h)));}
+ assert.throws(()=>array({...s,height:5,upperHeight:4}));assert.throws(()=>array({...s,rows:1,height:.1,upperHeight:20}));assert.throws(()=>array({...s,height:20.01,upperHeight:20.01}));
+});

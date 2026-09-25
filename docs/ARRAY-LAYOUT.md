@@ -54,3 +54,7 @@ semantic/licence review. GPU lexical matching is not an automatic reuse licence.
 
 Movement overlap feedback uses axis-aligned array bounds, including the full
 last-array envelope. It is conservative and is not shading or access analysis.
+
+## Heights and support sketches
+
+Lower and upper edges can be entered from 0.10 to 20 metres. Edge mode derives tilt from the unchanged module slope length; incompatible heights are rejected. Tilt mode derives the upper edge. The 4 m / 5 m preset is a user-requested generic example. Schematic posts reach the common ground plane, rails and optional cross-bracing follow the table, and the number of bays is editable. These lines do not specify steel sections, foundation dimensions, embedment or structural capacity. The dark palette matches the related inverter wiring tool. Reference photos stay local and are not dimensions or public assets.
