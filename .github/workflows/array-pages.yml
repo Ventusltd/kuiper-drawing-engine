@@ -22,7 +22,8 @@ jobs:
         run: |
           node --test tests/*.test.mjs
           node --check web/app.mjs
-          python3 -c "from pathlib import Path; p=list(Path('web').rglob('*')); assert sum(f.stat().st_size for f in p if f.is_file())<150000; assert not any(f.suffix in ['.pdf','.zip','.docx'] for f in p)"
+          python3 tests/test_public_bundle.py
+          python3 tools/check_public_bundle.py
       - name: Hosted browser checks
         run: |
           npm install --prefix "$RUNNER_TEMP/browser" --no-save --ignore-scripts playwright@1.62.1
