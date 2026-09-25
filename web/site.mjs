@@ -15,3 +15,11 @@ export function validatePlacements(raw,site){
  for(const row of raw){if(!row||Object.keys(row).some(k=>!['index','x','y'].includes(k))||!Number.isInteger(row.index)||row.index<0||row.index>=site.tables||!Number.isFinite(row.x)||!Number.isFinite(row.y)||Math.abs(row.x)>1e6||Math.abs(row.y)>1e6||row.index in result)throw Error('Invalid array position');result[row.index]={x:row.x,y:row.y};}
  return result;
 }
+// Axis-aligned bounding-box overlap screening against the regular grid plus moved arrays.
+export function overlapsFor(site,index,edits={}){
+ const a=tableAt(site,index,edits),candidates=new Set(Object.keys(edits).map(Number));
+ const c0=Math.max(0,Math.ceil((a.x-site.size[0])/site.pitch[0])),c1=Math.min(site.columns-1,Math.floor((a.x+site.size[0])/site.pitch[0]));
+ const r0=Math.max(0,Math.ceil((a.y-site.size[1])/site.pitch[1])),r1=Math.min(site.rows-1,Math.floor((a.y+site.size[1])/site.pitch[1]));
+ for(let r=r0;r<=r1;r++)for(let c=c0;c<=c1;c++){const i=r*site.columns+c;if(i<site.tables)candidates.add(i);}
+ return [...candidates].filter(i=>{if(i===index)return false;const b=tableAt(site,i,edits);return Math.min(a.x+site.size[0],b.x+site.size[0])-Math.max(a.x,b.x)>1e-9&&Math.min(a.y+site.size[1],b.y+site.size[1])-Math.max(a.y,b.y)>1e-9;});
+}
