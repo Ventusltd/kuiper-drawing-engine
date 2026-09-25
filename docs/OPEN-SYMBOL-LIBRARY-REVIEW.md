@@ -78,3 +78,13 @@ Proposed application acceptance rules, not a quotation of either standard:
 - A high-level SLD may legitimately omit detail held in linked schedules, protection drawings and lower-level SLDs. Missing detail alone is not evidence of deception.
 - Approved status requires an actual review record, drawing identity/revision and referenced evidence. A preliminary SLD must remain preliminary.
 - Connect symbols to typed equipment and terminal/node records. Derive the picture and exports from those same records so lines have electrical meaning, rather than being arbitrary graphics.
+
+## UK institutions and university sources
+
+- Energy Systems Catapult's Open Digital Solutions for Net Zero Energy programme explicitly targets open software, hardware and data: https://es.catapult.org.uk/project/open-digital-solutions-for-net-zero-energy/ . Its Data Sharing Infrastructure pilot addresses discoverability and interoperable exchange: https://es.catapult.org.uk/project/data-sharing-infrastructure/ . Neither page establishes a complete licensed SLD symbol bank.
+- Innovate UK and Ofgem's Strategic Innovation Fund supports energy network innovation: https://www.ukri.org/publications/ofgems-strategic-innovation-fund-sif-a-brief-guide/ . Funding or public reporting does not determine every output's licence.
+- Manchester's work with Electricity North West supplies detailed UK LV network models and measured-network context: https://www.enwl.co.uk/lvns . This is relevant engineering evidence, not automatic permission to redistribute drawing artwork.
+- Southampton's live standards index https://www.southampton.ac.uk/estates/standard-specifications.page currently marks standards under review. Its older https://www.southampton.ac.uk/~assets/doc/estates-and-facilities/import/cadprotocol.pdf is accessible but predates the required post-2012 project evidence. The indexed CAD01 v08 November2016 PDF URL returned404 in direct checking on 25September2026; do not present it as a working download.
+- Cambridge King's Chapel PV specification and 2022 tracker were found in indexed historical material, but both original download URLs returned404 in direct checking. Cambridge-hosted DOE drawing handbook is US1993 material, not a British university-created open symbol library. No current reusable British symbol pack was verified from Cambridge.
+
+Absence of a verified symbol pack in this scoped search is not evidence of absence of UK open engineering work.
