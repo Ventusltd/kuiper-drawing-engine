@@ -2,7 +2,7 @@
 export const defaults=Object.freeze({rows:5,columns:6,orientation:'portrait',layout:'east-west',azimuth:90,tilt:12,height:1,gap:.02,ridgeGap:.3,moduleLength:2.4,moduleWidth:1.2,moduleW:650,series:30,stringsPerInverter:24,invertersPerBlock:24,targetMW:1000,boxLayout:'unknown',boxU:.5,boxV:.5});
 export function validate(input){
  if(!input||typeof input!=='object'||Array.isArray(input))throw Error('Expected numeric layout settings');
- for(const k of Object.keys(input))if(!(k in defaults))throw Error('Unknown setting: '+k);
+ for(const k of Object.keys(input))if(!Object.hasOwn(defaults,k))throw Error('Unknown setting: '+k);
  const s={...defaults,...input};
  const limits={rows:[1,10],columns:[1,60],azimuth:[0,360],tilt:[0,60],height:[.1,5],gap:[0,.2],ridgeGap:[0,3],moduleLength:[.1,4],moduleWidth:[.1,3],moduleW:[1,1500],series:[1,60],stringsPerInverter:[1,100],invertersPerBlock:[1,100],targetMW:[.001,10000],boxU:[0,1],boxV:[0,1]};
  for(const[k,[lo,hi]]of Object.entries(limits))if(typeof s[k]!=='number'||!Number.isFinite(s[k])||s[k]<lo||s[k]>hi)throw Error(k+' is outside its supported range');
