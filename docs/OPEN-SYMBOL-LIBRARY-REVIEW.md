@@ -65,3 +65,16 @@ Recommendation: use a small reviewed open core with explicit source and licence 
 ## Working groups and interoperability
 
 LF Energy (https://lfenergy.org/grid-operators/) provides shared open software developed with grid operators, including PowSyBl. UCA International Users Group (https://ucaiug.org/about-ucaiug/) supports IEC 61850 and CIM interoperability. CIGRE working groups (https://www.cigre.org/article/home/cigre-active-working-groups--call-for-experts) address engineering topics including information exchange and digital twins. These are different outputs: executable software, exchange conventions and engineering guidance. None alone establishes a freely reusable, validated British drawing-symbol library. UK/IEC conventions are the intended default; alternative conventions must be explicitly labelled.
+
+## Drawing conventions and honest document status
+
+BS EN 61082-1:2015 covers preparation and presentation of electrotechnical documents, including diagrams (https://knowledge.bsigroup.com/products/preparation-of-documents-used-in-electrotechnology-rules). IEC 60617 supplies graphical symbols; its official database is subscription-based (https://webstore.iec.ch/en/publication/2723). These references do not constitute an open-source artwork licence or evidence that this implementation complies with every applicable clause.
+
+Proposed application acceptance rules, not a quotation of either standard:
+
+- A concept block view must be labelled as such. Do not equate appearance or animation with engineering approval.
+- An SLD view must represent electrical equipment and circuit connectivity at an explicitly stated scope and design stage, with identifiable devices and unambiguous connection/junction semantics.
+- Required voltage levels, equipment/circuit ratings, switching/protection and earthing information depend on the view's purpose. Unknown information stays explicitly unknown; the renderer must not invent it.
+- A high-level SLD may legitimately omit detail held in linked schedules, protection drawings and lower-level SLDs. Missing detail alone is not evidence of deception.
+- Approved status requires an actual review record, drawing identity/revision and referenced evidence. A preliminary SLD must remain preliminary.
+- Connect symbols to typed equipment and terminal/node records. Derive the picture and exports from those same records so lines have electrical meaning, rather than being arbitrary graphics.
