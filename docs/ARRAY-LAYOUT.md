@@ -8,7 +8,7 @@ to whole strings; a regular virtual plant places every array at a deterministic 
 
 Junction-box count and normalized locations are editable assumptions. Exact
 manufacturer mechanical drawings are required before calling a position correct.
-Configuration imports are local browser reads, bounded to 20 kB and numeric/
+Configuration imports are local browser reads, bounded to 1 MB and numeric/
 enumerated allowlisted fields. There is no upload, telemetry or external asset.
 
 Private equipment profiles, contract requirements, source hashes and project
@@ -26,3 +26,5 @@ The lexical estate inventory checks literal drawing patterns on GPU and CPU.
 It does not prove semantic reuse or grant a licence. Keep its full path inventory
 private and review provenance before copying any source. Existing vendor files
 retain their original terms; new array code was written independently.
+
+Boxes are hidden until their layout is specified. Box fractions follow the module short and long axes when changing orientation. Site overview export contains sampled footprints, not every module.

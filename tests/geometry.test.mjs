@@ -4,3 +4,13 @@ test('orthonormal frame and module sizes over angular grid',()=>{for(let a=0;a<3
 test('opposing faces meet across ridge and retain lower height',()=>{const m=array({...defaults,columns:1});const top=m.modules.filter(x=>x.row===5);const p=top[0].corners[3],q=top[1].corners[2];assert(Math.abs(p[2]-q[2])<1e-12);assert(m.modules.every(x=>x.corners.every(p=>p[2]>=defaults.height)));});
 test('1 GW string rounding and bounded geometry',()=>{const p=plant(defaults);assert(p.actualDCMW>=1000);assert(p.actualDCMW-1000<defaults.series*defaults.moduleW/1e6);assert.equal(p.modules,p.strings*30);assert(p.lastInverterStrings>=1&&p.lastInverterStrings<=24);assert(array({...defaults,rows:10,columns:60}).modules.length<=1200);});
 test('invalid imported values rejected',()=>{for(const x of [{rows:0},{tilt:NaN},{rows:1.2},{unknown:'value'},{boxV:2},{moduleW:Infinity}])assert.throws(()=>validate(x));});
+
+test('unknown boxes hidden and specified positions rotate with module orientation',()=>{
+ assert.equal(array(defaults).modules[0].boxes.length,0);
+ for(const orientation of ['portrait','landscape']){
+ const m=array({...defaults,rows:1,columns:1,layout:'fixed',azimuth:0,tilt:0,orientation,boxLayout:'one',boxU:.2,boxV:.8}).modules[0];
+ const dx=m.boxes[0][0]-m.corners[0][0],dy=m.corners[0][1]-m.boxes[0][1];
+ assert(Math.abs(dx-(orientation==='portrait'?defaults.moduleWidth*.2:defaults.moduleLength*.8))<1e-12);
+ assert(Math.abs(dy-(orientation==='portrait'?defaults.moduleLength*.8:defaults.moduleWidth*.2))<1e-12);
+ }
+});

@@ -1,5 +1,5 @@
 // Original geometry. Coordinates: east (x), north (y), up (z); metres.
-export const defaults=Object.freeze({rows:5,columns:6,orientation:'portrait',layout:'east-west',azimuth:90,tilt:12,height:1,gap:.02,ridgeGap:.3,moduleLength:2.4,moduleWidth:1.2,moduleW:650,series:30,stringsPerInverter:24,invertersPerBlock:24,targetMW:1000,boxLayout:'two',boxU:.5,boxV:.5});
+export const defaults=Object.freeze({rows:5,columns:6,orientation:'portrait',layout:'east-west',azimuth:90,tilt:12,height:1,gap:.02,ridgeGap:.3,moduleLength:2.4,moduleWidth:1.2,moduleW:650,series:30,stringsPerInverter:24,invertersPerBlock:24,targetMW:1000,boxLayout:'unknown',boxU:.5,boxV:.5});
 export function validate(input){
  if(!input||typeof input!=='object'||Array.isArray(input))throw Error('Expected numeric layout settings');
  for(const k of Object.keys(input))if(!(k in defaults))throw Error('Unknown setting: '+k);
@@ -25,7 +25,7 @@ export function array(supplied){
    const corners=[[0,0],[width,0],[width,length],[0,length]].map(([dx,dy])=>point(origin,u,v,x+dx,y+dy));
    const count={unknown:0,one:1,two:2,three:3}[s.boxLayout];
    // Normalised box positions are user settings, not manufacturer-approved coordinates.
-   const boxes=Array.from({length:count},(_,k)=>point(origin,u,v,x+width*(count===1?s.boxU:Math.max(0,Math.min(1,s.boxU+(k-(count-1)/2)*.28))),y+length*s.boxV));
+   const boxes=Array.from({length:count},(_,k)=>{const across=count===1?s.boxU:Math.max(0,Math.min(1,s.boxU+(k-(count-1)/2)*.28));const dx=s.orientation==='portrait'?width*across:width*s.boxV,dy=s.orientation==='portrait'?length*s.boxV:length*across;return point(origin,u,v,x+dx,y+dy);});
    modules.push({id:modules.length+1,wing,row:row+1,column:col+1,corners,boxes,normal});
   }
  }
