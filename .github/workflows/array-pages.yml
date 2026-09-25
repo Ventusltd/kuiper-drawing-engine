@@ -20,7 +20,7 @@ jobs:
           node-version: 22
       - name: Geometry and bundle checks
         run: |
-          node --test tests/geometry.test.mjs
+          node --test tests/*.test.mjs
           node --check web/app.mjs
           python3 -c "from pathlib import Path; p=list(Path('web').rglob('*')); assert sum(f.stat().st_size for f in p if f.is_file())<150000; assert not any(f.suffix in ['.pdf','.zip','.docx'] for f in p)"
       - name: Hosted browser checks
