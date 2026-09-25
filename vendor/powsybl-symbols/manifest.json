@@ -1,0 +1,99 @@
+{
+  "repository": "https://github.com/powsybl/powsybl-diagram",
+  "revision": "952186b5b34d1e4e472a04fb663b3654b54e3022",
+  "component_library": "ConvergenceLibrary",
+  "purpose": "research candidate source import; not production palette",
+  "entries": [
+    {
+      "upstream_symbol_name": "breaker-open",
+      "display_label": "Circuit breaker, open (tentative)",
+      "upstream_path": "single-line-diagram/single-line-diagram-core/src/main/resources/ConvergenceLibrary/breaker-open.svg",
+      "source_url": "https://raw.githubusercontent.com/powsybl/powsybl-diagram/952186b5b34d1e4e472a04fb663b3654b54e3022/single-line-diagram/single-line-diagram-core/src/main/resources/ConvergenceLibrary/breaker-open.svg",
+      "local_file": "breaker-open.svg",
+      "sha256": "678c129054a9ebef77cfb64d6816176ece8f15d9df20e31e15439e8bee5e70f9",
+      "license": "MPL-2.0",
+      "standards_validation": "unverified",
+      "approved_project_drawing": null,
+      "production_enabled": false,
+      "static_svg_check": "passed: XML parsed; no script, foreignObject, image, use, event handler, href/src, or URL attributes"
+    },
+    {
+      "upstream_symbol_name": "breaker-closed",
+      "display_label": "Circuit breaker, closed (tentative)",
+      "upstream_path": "single-line-diagram/single-line-diagram-core/src/main/resources/ConvergenceLibrary/breaker-closed.svg",
+      "source_url": "https://raw.githubusercontent.com/powsybl/powsybl-diagram/952186b5b34d1e4e472a04fb663b3654b54e3022/single-line-diagram/single-line-diagram-core/src/main/resources/ConvergenceLibrary/breaker-closed.svg",
+      "local_file": "breaker-closed.svg",
+      "sha256": "670bfc95b4743d9b56f70a478de4a1c1b3fa79ed94399d668753bc7a3cb823cb",
+      "license": "MPL-2.0",
+      "standards_validation": "unverified",
+      "approved_project_drawing": null,
+      "production_enabled": false,
+      "static_svg_check": "passed: XML parsed; no script, foreignObject, image, use, event handler, href/src, or URL attributes"
+    },
+    {
+      "upstream_symbol_name": "disconnector-open",
+      "display_label": "Disconnector, open (tentative)",
+      "upstream_path": "single-line-diagram/single-line-diagram-core/src/main/resources/ConvergenceLibrary/disconnector-open.svg",
+      "source_url": "https://raw.githubusercontent.com/powsybl/powsybl-diagram/952186b5b34d1e4e472a04fb663b3654b54e3022/single-line-diagram/single-line-diagram-core/src/main/resources/ConvergenceLibrary/disconnector-open.svg",
+      "local_file": "disconnector-open.svg",
+      "sha256": "f95c1ea8b74414df659c47b21c76fce5c18c0bf9e15a4b14d54c7f60f32337ef",
+      "license": "MPL-2.0",
+      "standards_validation": "unverified",
+      "approved_project_drawing": null,
+      "production_enabled": false,
+      "static_svg_check": "passed: XML parsed; no script, foreignObject, image, use, event handler, href/src, or URL attributes"
+    },
+    {
+      "upstream_symbol_name": "disconnector-closed",
+      "display_label": "Disconnector, closed (tentative)",
+      "upstream_path": "single-line-diagram/single-line-diagram-core/src/main/resources/ConvergenceLibrary/disconnector-closed.svg",
+      "source_url": "https://raw.githubusercontent.com/powsybl/powsybl-diagram/952186b5b34d1e4e472a04fb663b3654b54e3022/single-line-diagram/single-line-diagram-core/src/main/resources/ConvergenceLibrary/disconnector-closed.svg",
+      "local_file": "disconnector-closed.svg",
+      "sha256": "fcc40aa59ffbb750beeabc40e165020fd22986c46d212e81d5607ce5b2810878",
+      "license": "MPL-2.0",
+      "standards_validation": "unverified",
+      "approved_project_drawing": null,
+      "production_enabled": false,
+      "static_svg_check": "passed: XML parsed; no script, foreignObject, image, use, event handler, href/src, or URL attributes"
+    },
+    {
+      "upstream_symbol_name": "ground",
+      "display_label": "Earth/ground (tentative)",
+      "upstream_path": "single-line-diagram/single-line-diagram-core/src/main/resources/ConvergenceLibrary/ground.svg",
+      "source_url": "https://raw.githubusercontent.com/powsybl/powsybl-diagram/952186b5b34d1e4e472a04fb663b3654b54e3022/single-line-diagram/single-line-diagram-core/src/main/resources/ConvergenceLibrary/ground.svg",
+      "local_file": "ground.svg",
+      "sha256": "2686057f395e268dd43a447428997631c4f31b453ab47d0c71ca316f0d25ffc9",
+      "license": "MPL-2.0",
+      "standards_validation": "unverified",
+      "approved_project_drawing": null,
+      "production_enabled": false,
+      "static_svg_check": "passed: XML parsed; no script, foreignObject, image, use, event handler, href/src, or URL attributes"
+    },
+    {
+      "upstream_symbol_name": "2-windings-transformer-winding1",
+      "display_label": "Two-winding transformer: winding 1 fragment (tentative)",
+      "upstream_path": "single-line-diagram/single-line-diagram-core/src/main/resources/ConvergenceLibrary/2-windings-transformer-winding1.svg",
+      "source_url": "https://raw.githubusercontent.com/powsybl/powsybl-diagram/952186b5b34d1e4e472a04fb663b3654b54e3022/single-line-diagram/single-line-diagram-core/src/main/resources/ConvergenceLibrary/2-windings-transformer-winding1.svg",
+      "local_file": "2-windings-transformer-winding1.svg",
+      "sha256": "d0e4ec79b9ea5747f4c8f23b266af628abf6f3ff352bf132100d6e50ff1cc769",
+      "license": "MPL-2.0",
+      "standards_validation": "unverified",
+      "approved_project_drawing": null,
+      "production_enabled": false,
+      "static_svg_check": "passed: XML parsed; no script, foreignObject, image, use, event handler, href/src, or URL attributes"
+    },
+    {
+      "upstream_symbol_name": "2-windings-transformer-winding2",
+      "display_label": "Two-winding transformer: winding 2 fragment (tentative)",
+      "upstream_path": "single-line-diagram/single-line-diagram-core/src/main/resources/ConvergenceLibrary/2-windings-transformer-winding2.svg",
+      "source_url": "https://raw.githubusercontent.com/powsybl/powsybl-diagram/952186b5b34d1e4e472a04fb663b3654b54e3022/single-line-diagram/single-line-diagram-core/src/main/resources/ConvergenceLibrary/2-windings-transformer-winding2.svg",
+      "local_file": "2-windings-transformer-winding2.svg",
+      "sha256": "e8832ab597f193c2bbd3422246f4bd786544133eaa92b11967733626a0f57a4b",
+      "license": "MPL-2.0",
+      "standards_validation": "unverified",
+      "approved_project_drawing": null,
+      "production_enabled": false,
+      "static_svg_check": "passed: XML parsed; no script, foreignObject, image, use, event handler, href/src, or URL attributes"
+    }
+  ]
+}
