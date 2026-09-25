@@ -45,7 +45,7 @@ def main():
         mismatch+=int(np.count_nonzero(got!=reference))
         for (repo,path,content),flags in zip(batch,got):
             found=[p.decode() for p,v in zip(PATTERNS,flags) if v]
-            if found:records.append(dict(repository=repo,path=path,bytes=len(content),sha256=hashlib.sha256(content).hexdigest(),patterns=found,review='lexical candidate; licence and semantics not yet admitted'))
+            if found:records.append(dict(repository=repo,path=path,bytes=len(content),normalized_sha256=hashlib.sha256(content).hexdigest(),patterns=found,review='lexical candidate; licence and semantics not yet admitted'))
         total+=len(batch);bytes_read+=len(body);batch=[];batch_bytes=0
     for repo in sorted(Path(args.root).iterdir()):
         if not repo.is_dir() or not (repo/'.git').exists():continue
