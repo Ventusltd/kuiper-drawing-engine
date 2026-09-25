@@ -1,0 +1,51 @@
+name: Array layout checks and Pages
+on:
+  push:
+    branches: [main, codex/array-studio-coast]
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: array-pages-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Geometry and bundle checks
+        run: |
+          node --test tests/geometry.test.mjs
+          node --check web/app.mjs
+          python3 -c "from pathlib import Path; p=list(Path('web').rglob('*')); assert sum(f.stat().st_size for f in p if f.is_file())<150000; assert not any(f.suffix in ['.pdf','.zip','.docx'] for f in p)"
+      - name: Hosted browser checks
+        run: |
+          npm install --prefix "$RUNNER_TEMP/browser" --no-save --ignore-scripts playwright@1.62.1
+          "$RUNNER_TEMP/browser/node_modules/.bin/playwright" install --with-deps chromium
+          PLAYWRIGHT_MODULE="$RUNNER_TEMP/browser/node_modules/playwright" node tests/browser.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: array-browser-evidence
+          path: browser-evidence
+      - uses: actions/configure-pages@v5
+        if: github.ref == 'refs/heads/main'
+      - uses: actions/upload-pages-artifact@v3
+        if: github.ref == 'refs/heads/main'
+        with:
+          path: web
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    needs: verify
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/deploy-pages@v4
+        id: deploy
